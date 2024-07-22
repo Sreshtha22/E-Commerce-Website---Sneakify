@@ -1,0 +1,20 @@
+package com.example.ecom.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.ecom.dao.CustomerDao;
+import com.example.ecom.model.Customer;
+
+public class ContactServiceImp {
+	@Autowired
+	private ContactDao contactDao;
+
+	@Override
+	public Contact addContact(Contact contact) {
+		if (contactDao.findByEmail(contact.getEmail()) != null) {
+            throw new IllegalArgumentException("Email already exists");
+        }
+		contactDao.save(contact);
+		return contact;
+	}
+}

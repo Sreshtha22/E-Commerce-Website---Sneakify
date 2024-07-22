@@ -1,0 +1,7 @@
+package com.example.ecom.dao;
+
+import com.example.ecom.model.Customer;
+
+public interface ContactDao {
+	Contact findByEmail(String email);
+}

@@ -1,0 +1,5 @@
+package com.example.ecom.dao;
+
+public interface CustomerDao {
+
+}

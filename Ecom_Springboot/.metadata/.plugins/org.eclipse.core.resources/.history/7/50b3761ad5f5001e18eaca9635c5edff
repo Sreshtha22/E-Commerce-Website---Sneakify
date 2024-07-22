@@ -1,0 +1,109 @@
+package com.example.ecom.model;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
+
+
+@Entity
+public class Customer {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+	private String name;
+	private String phno;
+	@Column(unique = true)
+	private String email;
+	private String password;
+	private String sqstn;
+	private String ans;
+
+
+
+	public Customer() {
+		
+	}
+	public Customer(int id, String name, String email, String phno, String password, String sqstn, String ans) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.phno = phno;
+		this.email = email;
+		this.password = password;
+		this.sqstn = sqstn;
+		this.ans = ans;
+		
+	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getPhno() {
+		return phno;
+	}
+	public void setPhno(String phno) {
+		this.phno = phno;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getSqstn() {
+		return sqstn;
+	}
+	public void setSqstn(String sqstn) {
+		this.sqstn = sqstn;
+	}
+	public String getAns() {
+		return ans;
+	}
+	public void setAns(String ans) {
+		this.ans = ans;
+	}
+	
+	@PrePersist
+	public void generateCustomId() {
+	    if (id == null || id == 0) {
+	        id = generateId();
+	    }
+	}
+
+    private String generateId() {
+        // Simulate generating the next ID based on the counter
+        return "c" + getNextId();
+    }
+
+    private static int counter = 0;
+
+    private synchronized int getNextId() {
+        return ++counter;
+    }
+
+	
+	@Override
+	public String toString() {
+		return "Customer [id=" + id + ", name=" + name + ", email=" + email + ", phno=" + phno + ", password=" + password + ", sqstn=" + sqstn + ", ans=" + ans + "]";
+	}
+
+
+	}
+

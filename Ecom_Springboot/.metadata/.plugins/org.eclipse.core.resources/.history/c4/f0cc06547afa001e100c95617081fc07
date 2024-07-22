@@ -1,0 +1,5 @@
+package com.example.ecom.dao;
+import com.example.ecom.model.Contact;
+public interface ContactDao {
+	Contact findByEmail(String email);
+}

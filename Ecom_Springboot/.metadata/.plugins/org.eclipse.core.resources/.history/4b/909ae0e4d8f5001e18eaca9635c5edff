@@ -1,0 +1,7 @@
+package com.example.ecom.services;
+
+import com.example.ecom.model.Customer;
+
+public interface CustomerService {
+	public Customer addCustomer(Customer user);
+}

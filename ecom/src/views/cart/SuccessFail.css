@@ -1,0 +1,22 @@
+.success-page {
+    text-align: center;
+    padding: 50px;
+  }
+  .success-page h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  .success-page p {
+    font-size: 1.2em;
+  }
+  @media (max-width: 768px) {
+    .card {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 90%;
+    }
+    .success-page h1,
+    .success-page p {
+      font-size: 1.2rem;
+    }
+  }  
